@@ -1,0 +1,63 @@
+import java.util.*;
+
+public class mainLibrary {
+
+    public static void main(String[] args) {
+
+        bookOfLibrary fantasyBook = new bookOfLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", 423, 1954, "bookshelf a1");
+
+        String text = fantasyBook.description();
+
+        System.out.println("book dara: " + text);
+
+        fantasyBook.localization();
+
+        System.out.print("book situation: ");
+        if (fantasyBook.isBorrowed()) {
+            System.out.println("borrowed");
+        } else {
+            System.out.println("available");
+        }
+
+        Scanner ent = new Scanner(System.in);
+        String resp;
+        char r;
+        do {
+            System.out.println("\ndo you want to borrow the book?(Y/N)");
+            resp = ent.nextLine();
+            resp = resp.toUpperCase();
+            r = resp.charAt(0);
+        } while (r != 'Y' && r != 'N');
+
+        if (r == 'Y') {
+            fantasyBook.borrow();
+        }
+
+        System.out.print("book situation: ");
+        if (fantasyBook.isBorrowed()) {
+            System.out.println("borrowed");
+        } else {
+            System.out.println("available");
+        }
+
+        do {
+            System.out.println("\ndo you want to return the book? (Y/N)");
+            resp = ent.nextLine();
+            resp = resp.toUpperCase();
+            r = resp.charAt(0);
+        } while (r != 'Y' && r != 'N');
+
+        if (r == 'Y') {
+            fantasyBook.giveBack();
+        }
+
+        System.out.print("book situation: ");
+        if (fantasyBook.isBorrowed()) {
+            System.out.println("borrowed");
+        } else {
+            System.out.println("available");
+        }
+
+
+    }
+}
