@@ -1,0 +1,34 @@
+public class bookOfLibrary extends book implements objectLibrary {
+  boolean borrowed;
+  String localization;
+
+  public bookOfLibrary (String title, String writer, int numPages, int numChapter, String localization){
+    super(title, writer, numPages, numChapter);
+    this.localization = localization;
+    borrowed = false;
+  }
+
+  public boolean isBorrowed() {
+    if(borrow){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public void borrow() {
+    isBorrowed = true;
+  }
+
+  public void giveBack() {
+    isBorrowed = false;
+  }
+
+  public void localization() {
+    System.out.println("localization of the book in library: " + localization);
+  }
+
+  public String description() {
+    return getTitle() + " - " + getWriter() + " - " + getNumPages() + " pag. - " + getChapter();
+  }
+}
